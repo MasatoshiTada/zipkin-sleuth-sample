@@ -24,9 +24,13 @@ public class HelloService {
         logger.info("[ms2-service] 呼ばれました");
         sleep(stopSeconds);
         RestTemplate restTemplate = restTemplateBuilder.build();
+        logger.info("[ms2-service] ms3を呼び出します...");
         String message = restTemplate.getForObject("http://localhost:8083/", String.class);
         logger.info("[ms2-service] ms3からメッセージを受け取りました : {}", message);
-        return message.toUpperCase();
+        logger.info("[ms2-service] ms4を呼び出します...");
+        String user = restTemplate.getForObject("http://localhost:8084/", String.class);
+        logger.info("[ms2-service] ms4からメッセージを受け取りました : {}", user);
+        return message + ", " + user;
     }
 
     private void sleep(int seconds) {

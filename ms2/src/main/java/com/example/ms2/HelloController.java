@@ -20,7 +20,7 @@ public class HelloController {
     public String hello() {
         logger.info("[ms2-controller] 実行されました");
         String message = helloService.hello();
-        logger.info("[ms2-controller] ms2からメッセージを受け取りました : {}", message);
+        logger.info("[ms2-controller] ms2,ms3からメッセージを受け取りました : {}", message);
         return message;
     }
 
